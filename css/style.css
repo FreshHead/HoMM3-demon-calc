@@ -88,6 +88,10 @@ h6 {
 }
 
 /*-----------------------------------*/
+.container {
+    display: flex;
+}
+
 .towns {}
 
 .towns div {
@@ -142,7 +146,30 @@ h6 {
     background: url(../img/towns/tower.gif);
 }
 
-
 .townSelection {
-    outline: 5px red solid;
+    border: 5px red solid;
+}
+
+.creatures {
+    /* display: inline-block; */
+    width: 100%;
+}
+
+.row {
+    height: 8vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.creature {
+    display: flex;
+    width: 25%;
+    margin: 0 0 5px 0;
+}
+
+.creature div {
+    width: 50%;
+    border: 1px solid grey;
 }

@@ -1,4 +1,5 @@
-// No export/import because I try not to use the http server. Obviously I never do this at work.
+// No export/import because I try not to use the http server. Obviously I never code like this at work.
+
 var creatures = {
     castle: [
         { name: "Копейщик", health: 10 },

@@ -5,48 +5,63 @@
     <meta charset="UTF-8">
     <title>Home</title>
     <link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript" src="js/ui.js"></script>
-    <!-- <script type="text/javascript" src="js/creatures.js"></script> -->
+    <script type="text/javascript" src="js/view.js"></script>
+    <script type="text/javascript" src="js/model.js"></script>
 </head>
 
 <body>
-    <div class="towns">
-        <div class="towns--castle"></div>
-        <div class="towns--conflux"></div>
-        <div class="towns--cove"></div>
-        <div class="towns--dungeon"></div>
-        <div class="towns--fortress"></div>
-        <div class="towns--inferno"></div>
-        <div class="towns--necropolis"></div>
-        <div class="towns--neutral"></div>
-        <div class="towns--rampart"></div>
-        <div class="towns--stronghold"></div>
-        <div class="towns--tower"></div>
+    <div class="container">
+        <div class="towns">
+            <div id="castle" class="towns--castle"></div>
+            <div id="conflux" class="towns--conflux"></div>
+            <div class="towns--cove"></div>
+            <div class="towns--dungeon"></div>
+            <div class="towns--fortress"></div>
+            <div class="towns--inferno"></div>
+            <div class="towns--necropolis"></div>
+            <div class="towns--neutral"></div>
+            <div class="towns--rampart"></div>
+            <div class="towns--stronghold"></div>
+            <div class="towns--tower"></div>
+        </div>
+        <div class="creatures">
+            <div class="row">
+                <div class="creature">
+                    <div class="simple"></div>
+                    <div class="upgraded"></div>
+                </div>
+                <div class="creature">
+                    <div class="simple"></div>
+                    <div class="upgraded"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="creature">
+                    <div class="simple"></div>
+                    <div class="upgraded"></div>
+                </div>
+                <div class="creature">
+                    <div class="simple"></div>
+                    <div class="upgraded"></div>
+                </div>
+                <div class="creature">
+                    <div class="simple"></div>
+                    <div class="upgraded"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="creature">
+                    <div class="simple"></div>
+                    <div class="upgraded"></div>
+                </div>
+                <div class="creature">
+                    <div class="simple"></div>
+                    <div class="upgraded"></div>
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- <div class="container">
-        <select name="Раса" id="fractions">
-            <option value="castle">Замок</option>
-            <option value="rampart">Оплот</option>
-            <option value="tower">Башня</option>
-            <option value="dungeon">Темница</option>
-            <option value="inferno">Инферно</option>
-            <option value="stronghold">Крепость</option>
-            <option value="fortress">Цитадель</option>
-            <option value="conflux">Сопряжение</option>
-            <option value="cove">Пристань</option>
-            <option value="neutrals">Нейтралы</option>
-        </select>
-        <select name="Существа" id="creatures">
-            <option>Копейщик</option>
-            <option>Лучник</option>
-            <option>Грифон</option>
-            <option>Рыцарь</option>
-            <option>Монах</option>
-        </select>
-        <input id="count" placeholder="сколько"></input>
-        <input id="pitlords" placeholder="питов"></input>
-        <input id="result" value="0 демонов"></input>
-    </div> -->
+
     <footer>
         <span>Наскрябал UniverAlex</span>
     </footer>
