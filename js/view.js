@@ -11,7 +11,7 @@ function showCreatures(town) {
     const townCreatures = getCreatures(town);
     // TODO: Попробуй сделать генератор, который возвращает существ по очереди.
     const levels = document.querySelectorAll(".creatures .creature");
-    townCreatures.forEach((oCreature, idx) => {
+    townCreatures.forEach((oCreature, idx)=> {
 
     });
     levels.forEach((level, idx) => {

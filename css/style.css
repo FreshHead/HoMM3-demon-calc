@@ -150,6 +150,10 @@ h6 {
     border: 5px red solid;
 }
 
+.container2 {
+    width: 100%;
+}
+
 .creatures {
     /* display: inline-block; */
     width: 100%;
@@ -172,4 +176,38 @@ h6 {
 .creature div {
     width: 50%;
     border: 1px solid grey;
+}
+
+.pitlord {
+    height: 100px;
+    width: 50px;
+    transform: scale(2);
+    background: url(../img/sprite_sheets/pitlord.png) no-repeat;
+}
+
+
+:root {
+    --offset: 50px;
+}
+
+.pitlord:hover {
+    animation: pitlord-hover 1s steps(9);
+    /*👉 animation-name: pitlord-hover;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;👈*/
+}
+
+@keyframes pitlord-hover {
+    /*👉   0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: -50px 0;
+    }👈*/
+
+    100% {
+        background-position: -450px 0;
+        /* border: 2px solid green; */
+    }
 }
