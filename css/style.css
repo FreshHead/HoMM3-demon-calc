@@ -103,7 +103,7 @@ body {
         "towns creatures creatures"
         "towns sacrifice sacrifice"
         "towns demons demons"
-        "footer footer footer";
+        "towns footer footer";
     grid-template-columns: 20vw 1fr 1fr;
     grid-template-rows: 1fr repeat(6, 2fr) 1fr;
 }
@@ -113,10 +113,32 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    background: url(../img/tall_back.png);
+    padding: 5px;
+    border: 1px solid gold;
+    margin: 0 0 10px 10px;
+}
+
+footer {
+    color: white;
+    /* position: fixed; */
+    grid-area: footer;
+    background: url(../img/wide_back.png);
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid gold;
+    text-align: right;
+}
+
+footer a {
+    color: wheat;
 }
 
 .pitlord {
     grid-area: pitlord;
+    background: url(../img/wide_back.png);
+    margin: 0 10px 0 10px;
+    border: 1px solid gold;
 }
 
 .creatures {
@@ -124,6 +146,9 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background: url(../img/wide_back.png);
+    margin: 10px;
+    border: 1px solid gold;
 }
 
 .town {
@@ -137,7 +162,7 @@ body {
 
 
 .townSelection {
-    border: 5px red solid;
+    box-shadow: 0 0 0 1px gold;
 }
 
 .creature {
