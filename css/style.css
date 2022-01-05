@@ -88,126 +88,137 @@ h6 {
 }
 
 /*-----------------------------------*/
-.container {
-    display: flex;
+body {
+    background: url(../img/lava.png) 0 0 / auto 100% no-repeat;
 }
 
-.towns {}
+.container {
+    height: 100%;
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "towns pitlord pitlord"
+        "towns creatures creatures"
+        "towns creatures creatures"
+        "towns creatures creatures"
+        "towns sacrifice sacrifice"
+        "towns demons demons"
+        "footer footer footer";
+    grid-template-columns: 20vw 1fr 1fr;
+    grid-template-rows: 1fr repeat(6, 2fr) 1fr;
+}
 
-.towns div {
-    height: 8vh;
-    width: 12vh;
+.towns {
+    grid-area: towns;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.pitlord {
+    grid-area: pitlord;
+}
+
+.creatures {
+    grid-area: creatures;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.town {
+    /* height: 100%; */
+    height: 0;
+    padding-top: 65%;
     background-size: auto 100%;
     background-repeat: no-repeat;
-    margin: 5px;
 }
 
-.towns--castle {
-    background: url(../img/towns/castle.gif);
-}
 
-.towns--conflux {
-    background: url(../img/towns/conflux.gif);
-}
-
-.towns--cove {
-    background: url(../img/towns/cove.gif);
-}
-
-.towns--dungeon {
-    background: url(../img/towns/dungeon.gif);
-}
-
-.towns--fortress {
-    background: url(../img/towns/fortress.gif);
-}
-
-.towns--inferno {
-    background: url(../img/towns/inferno.gif);
-}
-
-.towns--necropolis {
-    background: url(../img/towns/necropolis.gif);
-}
-
-.towns--neutral {
-    background: url(../img/towns/neutral.gif);
-}
-
-.towns--rampart {
-    background: url(../img/towns/rampart.gif);
-}
-
-.towns--stronghold {
-    background: url(../img/towns/stronghold.gif);
-}
-
-.towns--tower {
-    background: url(../img/towns/tower.gif);
-}
 
 .townSelection {
     border: 5px red solid;
 }
 
-.container2 {
-    width: 100%;
-}
-
-.creatures {
-    /* display: inline-block; */
-    width: 100%;
-}
-
-.row {
-    height: 8vh;
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-
-}
-
 .creature {
-    display: flex;
-    width: 25%;
-    margin: 0 0 5px 0;
+    display: grid;
+    grid-template-areas:
+        "simple upgraded";
+    width: 50%;
 }
 
 .creature div {
-    width: 50%;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
     border: 1px solid grey;
+    padding-left: 62%;
+    width: 0;
 }
 
-.pitlord {
+.simple {
+    grid-area: simple;
+}
+
+.upgraded {
+    grid-area: upgraded;
+}
+
+.pitlord--sprite {
     height: 100px;
     width: 50px;
-    transform: scale(2);
     background: url(../img/sprite_sheets/pitlord.png) no-repeat;
 }
 
-
-:root {
-    --offset: 50px;
-}
-
-.pitlord:hover {
-    animation: pitlord-hover 1s steps(9);
-    /*👉 animation-name: pitlord-hover;
-    animation-duration: 500ms;
-    animation-fill-mode: forwards;👈*/
+.pitlord--sprite:hover {
+    animation: pitlord-hover 1s steps(8);
 }
 
 @keyframes pitlord-hover {
-    /*👉   0% {
-        background-position: 0 0;
-    }
-
-    50% {
-        background-position: -50px 0;
-    }👈*/
-
     100% {
-        background-position: -450px 0;
-        /* border: 2px solid green; */
+        background-position: -400px 0;
     }
+}
+
+#castle {
+    background-image: url(../img/towns/castle.gif);
+}
+
+#conflux {
+    background-image: url(../img/towns/conflux.gif);
+}
+
+#cove {
+    background-image: url(../img/towns/cove.gif);
+}
+
+#dungeon {
+    background-image: url(../img/towns/dungeon.gif);
+}
+
+#fortress {
+    background-image: url(../img/towns/fortress.gif);
+}
+
+#inferno {
+    background-image: url(../img/towns/inferno.gif);
+}
+
+#necropolis {
+    background-image: url(../img/towns/necropolis.gif);
+}
+
+#neutral {
+    background-image: url(../img/towns/neutral.gif);
+}
+
+#rampart {
+    background-image: url(../img/towns/rampart.gif);
+}
+
+#stronghold {
+    background-image: url(../img/towns/stronghold.gif);
+}
+
+#tower {
+    background-image: url(../img/towns/tower.gif);
 }
