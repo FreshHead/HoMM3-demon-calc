@@ -93,6 +93,8 @@ body {
 }
 
 .container {
+    max-width: 600px;
+    margin: 0 auto;
     height: 100%;
     display: grid;
     grid-template-areas:
@@ -104,7 +106,7 @@ body {
         "towns sacrifice sacrifice"
         "towns demons demons"
         "towns footer footer";
-    grid-template-columns: 20vw 1fr 1fr;
+    grid-template-columns: 1fr 2fr 2fr;
     grid-template-rows: 1fr repeat(6, 2fr) 1fr;
 }
 
@@ -141,18 +143,28 @@ footer a {
     border: 1px solid gold;
 }
 
-.creatures {
+#creatureList {
     grid-area: creatures;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
+    align-content: flex-start;
     background: url(../img/wide_back.png);
     margin: 10px;
+    padding: 5px;
     border: 1px solid gold;
 }
 
+#creatureList div {
+    /* background-size: auto 100%; */
+    background-repeat: no-repeat;
+    border: 1px solid grey;
+    width: 58px;
+    height: 64px;
+    margin: 0 0 5px 0;
+}
+
 .town {
-    /* height: 100%; */
     height: 0;
     padding-top: 65%;
     background-size: auto 100%;
@@ -172,13 +184,6 @@ footer a {
     width: 50%;
 }
 
-.creature div {
-    background-size: auto 100%;
-    background-repeat: no-repeat;
-    border: 1px solid grey;
-    padding-left: 62%;
-    width: 0;
-}
 
 .simple {
     grid-area: simple;
@@ -226,10 +231,6 @@ footer a {
 
 #inferno {
     background-image: url(../img/towns/inferno.gif);
-}
-
-#necropolis {
-    background-image: url(../img/towns/necropolis.gif);
 }
 
 #neutral {

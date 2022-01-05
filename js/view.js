@@ -9,19 +9,23 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function showCreatures(town) {
-    const townCreatures = getCreatures(town);
-    // TODO: Попробуй сделать генератор, который возвращает существ по очереди.
-    const levels = document.querySelectorAll(".creatures .creature");
-    townCreatures.forEach((oCreature, idx) => {
-
-    });
-    levels.forEach((level, idx) => {
-        if (townCreatures[idx]) {
-            level.children[0].style.backgroundImage = "url(img/creatures/" + town + "/" + townCreatures[idx][0].name + ".gif)";
-            level.children[1].style.backgroundImage = "url(img/creatures/" + town + "/" + townCreatures[idx][1].name + ".gif)";
-        } else {
-            level.children[0].style.backgroundImage = "";
-            level.children[1].style.backgroundImage = "";
+    const creatures = getCreatures(town);
+    const creaturesDiv = document.getElementById("creatureList");
+    creaturesDiv.textContent = ""; // Remove all old children.
+    let offset = 0;
+    creatures.forEach(creature => {
+        // TODO: Сохрани здоровье для расчётов creature[0].health
+        const creatureDiv = document.createElement("div");
+        creatureDiv.style.backgroundImage = "url(img/sprite_sheets/" + town + "_creatures.png)";
+        creatureDiv.style.backgroundPositionX = offset + "px";
+        creaturesDiv.append(creatureDiv);
+        offset -= 58;
+        if (creature[1]) {
+            const upgradedCreatureDiv = document.createElement("div");
+            upgradedCreatureDiv.style.backgroundImage = "url(img/sprite_sheets/)" + town + "_creatures.png)";
+            creaturesDiv.append(upgradedCreatureDiv);
+            offset += 58;
         }
     });
+    // TODO: Попробуй сделать генератор, который возвращает существ по очереди.
 }
