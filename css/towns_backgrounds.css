@@ -1,0 +1,39 @@
+#castle {
+    background-image: url(../img/towns/castle.gif);
+}
+
+#conflux {
+    background-image: url(../img/towns/conflux.gif);
+}
+
+#cove {
+    background-image: url(../img/towns/cove.gif);
+}
+
+#dungeon {
+    background-image: url(../img/towns/dungeon.gif);
+}
+
+#fortress {
+    background-image: url(../img/towns/fortress.gif);
+}
+
+#inferno {
+    background-image: url(../img/towns/inferno.gif);
+}
+
+#neutral {
+    background-image: url(../img/towns/neutral.gif);
+}
+
+#rampart {
+    background-image: url(../img/towns/rampart.gif);
+}
+
+#stronghold {
+    background-image: url(../img/towns/stronghold.gif);
+}
+
+#tower {
+    background-image: url(../img/towns/tower.gif);
+}

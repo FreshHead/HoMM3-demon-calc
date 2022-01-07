@@ -1,95 +1,9 @@
-/* Каждый браузер отображает стили по умолчанию на свой лад. Поэтому нужны обнуляющие стили.*/
-* {
-    padding: 0;
-    margin: 0;
-    border: 0;
-}
-
-*,
-*:before,
-*:after {
-    -moz-box-sizing: border-box;
-    /* в width и heigth входит padding и border но не маржин*/
-    -webkit-box-sizing: border-box;
-    /*Н-р при ширине 500px и padding 20px, ширина грагиц будет 500px, а не 520px по умолчанию*/
-    box-sizing: border-box;
-}
-
-:focus,
-:active {
-    outline: none;
-}
-
-a:focus,
-a:active {
-    outline: none;
-}
-
-nav,
-footer,
-header,
-aside {
-    display: block;
-}
-
-html,
-body {
-    height: 100%;
-    width: 100%;
-    font-size: 100%;
-    line-height: 1;
-    /* Промежуток между строками равен размеру шрифта. */
-    font-size: 14px;
-    -ms-text-size-adjust: 100%;
-    -moz-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-}
-
-input,
-button,
-textarea {
-    font-family: inherit;
-}
-
-input::-ms-clear {
-    display: none;
-}
-
-button {
-    cursor: pointer;
-}
-
-button::-moz-focus-inner {
-    padding: 0;
-    border: 0;
-}
-
-a,
-a:visited {
-    text-decoration: none;
-}
-
-ul li {
-    list-style: none;
-}
-
-img {
-    vertical-align: top;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-size: inherit;
-    font-weight: 400;
-}
-
-/*-----------------------------------*/
 body {
     background: url(../img/lava.png) 0 0 / 100% 100% no-repeat;
+}
+
+a {
+    color: wheat;
 }
 
 .container {
@@ -99,109 +13,29 @@ body {
     height: 100%;
     display: grid;
     grid-template-areas:
-        "header header header"
+        /* "header header header" */
         "towns pitlord pitlord"
         "towns creatures creatures"
         "towns creatures creatures"
         "towns creatures creatures"
-        "towns sacrifice sacrifice"
+        "towns sacrifice efficient"
         "towns demons demons"
         "towns footer footer";
     grid-template-columns: 1fr 2fr 2fr;
     grid-template-rows: 1fr repeat(6, 2fr) 1fr;
 }
 
-.towns {
+.card {
+    padding: 5px;
+    border: 1px solid gold;
+}
+
+#towns-list {
     grid-area: towns;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    background: url(../img/tall_back.png);
-    padding: 5px;
-    border: 1px solid gold;
     margin: 0 0 10px 10px;
-}
-
-footer {
-    color: white;
-    /* position: fixed; */
-    grid-area: footer;
-    background: url(../img/wide_back.png);
-    margin: 10px;
-    padding: 5px;
-    border: 1px solid gold;
-    text-align: right;
-}
-
-footer a {
-    color: wheat;
-}
-
-.pitlord {
-    grid-area: pitlord;
-    background: url(../img/wide_back.png);
-    margin: 0 10px 0 10px;
-    border: 1px solid gold;
-    display: flex;
-    justify-content: space-between;
-}
-
-.pitlord--count {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#pitlord--count--input {
-    font-size: 3rem;
-    width: 6rem;
-    text-align: center;
-    color: lightgoldenrodyellow;
-    background-color: rgba(0, 0, 0, 0.5);
-    margin: 0 10px 0 10px;
-}
-
-.arrow {
-    transform: scale(1.5);
-    width: 14px;
-    height: 15px;
-}
-
-.mirror {
-    transform: scaleX(-1);
-}
-
-.pitlord--count {
-    color: white;
-}
-
-.arrow-left {
-    background: url(../img/arrow_left.png) no-repeat;
-}
-
-.arrow-rigth {
-    background: url(../img/arrow_rigth.png) no-repeat;
-}
-
-#creatureList {
-    grid-area: creatures;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-content: flex-start;
-    background: url(../img/wide_back.png);
-    margin: 10px;
-    padding: 5px;
-    border: 1px solid gold;
-}
-
-#creatureList div {
-    /* background-size: auto 100%; */
-    background-repeat: no-repeat;
-    border: 1px solid grey;
-    width: 58px;
-    height: 64px;
-    margin: 0 0 5px 0;
 }
 
 .town {
@@ -211,38 +45,20 @@ footer a {
     background-repeat: no-repeat;
 }
 
-
-
-.townSelection {
-    box-shadow: 0 0 0 1px gold;
+#pitlords-number {
+    grid-area: pitlord;
+    margin: 0 10px 0 10px;
+    display: flex;
+    justify-content: space-between;
 }
 
-.creature {
-    display: grid;
-    grid-template-areas:
-        "simple upgraded";
-    width: 50%;
-}
-
-
-.simple {
-    grid-area: simple;
-}
-
-.upgraded {
-    grid-area: upgraded;
-}
-
-.pitlord--sprite {
-    height: 100%;
-    width: 0;
-
+.pitlord-pic {
     height: 100px;
     width: 50px;
     background: url(../img/sprite_sheets/pitlord.png) no-repeat;
 }
 
-.pitlord--sprite:hover {
+.pitlord-pic:hover {
     animation: pitlord-hover 1s steps(8);
 }
 
@@ -252,42 +68,55 @@ footer a {
     }
 }
 
-#castle {
-    background-image: url(../img/towns/castle.gif);
+.number-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#conflux {
-    background-image: url(../img/towns/conflux.gif);
+.arrow {
+    background: url(../img/arrow_left.png) 0 0 / 100% no-repeat;
+    width: 28px;
+    height: 30px;
 }
 
-#cove {
-    background-image: url(../img/towns/cove.gif);
+.number-input input {
+    font-size: 3rem;
+    width: 6rem;
+    text-align: center;
+    color: lightgoldenrodyellow;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 0 10px 0 10px;
 }
 
-#dungeon {
-    background-image: url(../img/towns/dungeon.gif);
+#creatures-list {
+    grid-area: creatures;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: flex-start;
+    margin: 10px;
 }
 
-#fortress {
-    background-image: url(../img/towns/fortress.gif);
+#creatures-list div {
+    background-repeat: no-repeat;
+    border: 1px solid grey;
+    width: 58px;
+    height: 64px;
+    margin: 0 0 5px 0;
 }
 
-#inferno {
-    background-image: url(../img/towns/inferno.gif);
+footer {
+    grid-area: footer;
+    color: white;
+    margin: 10px;
+    text-align: right;
 }
 
-#neutral {
-    background-image: url(../img/towns/neutral.gif);
+.mirror {
+    transform: scaleX(-1);
 }
 
-#rampart {
-    background-image: url(../img/towns/rampart.gif);
-}
-
-#stronghold {
-    background-image: url(../img/towns/stronghold.gif);
-}
-
-#tower {
-    background-image: url(../img/towns/tower.gif);
+.selected {
+    box-shadow: 0 0 0 1px gold;
 }

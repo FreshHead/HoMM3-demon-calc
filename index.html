@@ -5,15 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" href="css/nullify.css">
+    <link rel="stylesheet" href="css/towns_backgrounds.css">
     <link rel="stylesheet" href="css/style.css">
     <script type="text/javascript" src="js/view.js"></script>
     <script type="text/javascript" src="js/model.js"></script>
 </head>
 
 <body>
+    <header>
+        <h1>Калькулятор демонения для HoMM 3</h1>
+    </header>
     <div class="container">
-        <div class="towns">
-            <div id="castle" class="town townSelection"></div>
+        <div id="towns-list" class="card">
+            <div id="castle" class="town selected"></div>
             <div id="conflux" class="town"></div>
             <div id="cove" class="town"></div>
             <div id="dungeon" class="town"></div>
@@ -24,21 +29,22 @@
             <div id="stronghold" class="town"></div>
             <div id="tower" class="town"></div>
         </div>
-        <div class="pitlord">
-            <div class="pitlord--sprite"></div>
-            <div class="pitlord--count">
-                <!-- <div class="pitlord--count">10</div> -->
-                <div class="arrow arrow-left"></div>
-                <input id="pitlord--count--input" type="number" />
-                <!-- <input id="pitlord--range" type="range" min="1" max="20" /> -->
-                <div class="arrow arrow-rigth"></div>
+        <div id="pitlords-number" class="card">
+            <div class="pitlord-pic"></div>
+            <div class="number-input">
+                <div class="arrow"></div>
+                <input min="1" max="999" type="number" />
+                <div class="arrow mirror"></div>
             </div>
-            <div class="mirror pitlord--sprite"></div>
+            <div class="pitlord-pic mirror"></div>
         </div>
-        <div id="creatureList">
-
+        <div id="creatures-list" class="card"></div>
+        <div id="creatures-number" class="card creature-number">
+            <div id="sacrificed" class="number-input"></div>
+            <div id="efficient" class=""></div>
         </div>
-        <footer>
+        <div id="demons-number" class="card"></div>
+        <footer class="card">
             <p>Александр Костарев</p>
             <p><a href="mailto:UniverAlex@ya.ru">UniverAlex@ya.ru</a></p>
         </footer>

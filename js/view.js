@@ -21,7 +21,7 @@ const townCreatures = {
 };
 function showCreatures(town) {
     const creatures = townCreatures[town];
-    const creaturesDiv = document.getElementById("creatureList");
+    const creaturesDiv = document.getElementById("creatures-list");
     creaturesDiv.textContent = ""; // Remove all old children.
     let offset = 0;
     creatures.forEach(creature => {
