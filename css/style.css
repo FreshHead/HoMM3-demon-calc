@@ -89,11 +89,12 @@ h6 {
 
 /*-----------------------------------*/
 body {
-    background: url(../img/lava.png) 0 0 / auto 100% no-repeat;
+    background: url(../img/lava.png) 0 0 / 100% 100% no-repeat;
 }
 
 .container {
     max-width: 600px;
+    max-height: 720px;
     margin: 0 auto;
     height: 100%;
     display: grid;
@@ -141,6 +142,45 @@ footer a {
     background: url(../img/wide_back.png);
     margin: 0 10px 0 10px;
     border: 1px solid gold;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pitlord--count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pitlord--count--input {
+    font-size: 3rem;
+    width: 6rem;
+    text-align: center;
+    color: lightgoldenrodyellow;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 0 10px 0 10px;
+}
+
+.arrow {
+    transform: scale(1.5);
+    width: 14px;
+    height: 15px;
+}
+
+.mirror {
+    transform: scaleX(-1);
+}
+
+.pitlord--count {
+    color: white;
+}
+
+.arrow-left {
+    background: url(../img/arrow_left.png) no-repeat;
+}
+
+.arrow-rigth {
+    background: url(../img/arrow_rigth.png) no-repeat;
 }
 
 #creatureList {
@@ -194,6 +234,9 @@ footer a {
 }
 
 .pitlord--sprite {
+    height: 100%;
+    width: 0;
+
     height: 100px;
     width: 50px;
     background: url(../img/sprite_sheets/pitlord.png) no-repeat;
