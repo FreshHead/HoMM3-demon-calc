@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const towns = document.querySelectorAll(".town");
     showCreatures("castle");
     towns.forEach(town => town.onclick = (event) => {
-        towns.forEach(town => town.classList.remove("townSelection"));
-        event.target.classList.add("townSelection")
+        towns.forEach(town => town.classList.remove("selected"));
+        event.target.classList.add("selected")
         this.showCreatures(event.target.id);
     });
 });

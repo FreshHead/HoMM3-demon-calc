@@ -31,19 +31,25 @@
         </div>
         <div id="pitlords-number" class="card">
             <div class="pitlord-pic"></div>
-            <div class="number-input">
-                <div class="arrow"></div>
-                <input min="1" max="999" type="number" />
-                <div class="arrow mirror"></div>
+            <div class="center">
+                <div class="arrow" onclick="this.nextElementSibling.stepDown()"></div>
+                <input min="1" max="999" type="number" value="1" class="number">
+                <div class="arrow mirror" onclick="this.previousElementSibling.stepUp()"></div>
             </div>
-            <div class="pitlord-pic mirror"></div>
+            <div class=" pitlord-pic mirror"></div>
         </div>
         <div id="creatures-list" class="card"></div>
-        <div id="creatures-number" class="card creature-number">
-            <div id="sacrificed" class="number-input"></div>
-            <div id="efficient" class=""></div>
+        <div id="sacrificed-number" class="card center">
+            <div class="arrow" onclick="this.nextElementSibling.stepDown()"></div>
+            <input min="1" max="999" type="number" value="1" class="number">
+            <div class="arrow mirror" onclick="this.previousElementSibling.stepUp()"></div>
         </div>
-        <div id="demons-number" class="card"></div>
+        <div id="efficient-number" class="card center">
+            <div class="number">0</div>
+        </div>
+        <div id="demons-number" class="card center">
+            <div class="number">0</div>
+        </div>
         <footer class="card">
             <p>Александр Костарев</p>
             <p><a href="mailto:UniverAlex@ya.ru">UniverAlex@ya.ru</a></p>
