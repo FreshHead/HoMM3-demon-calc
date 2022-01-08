@@ -1,5 +1,8 @@
 body {
     background: url(../img/lava.png) 0 0 / 100% 100% no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 a {
@@ -26,22 +29,21 @@ header {
 }
 
 .container {
-    max-width: 600px;
+    max-width: 375px;
     max-height: 720px;
     margin: 0 auto;
-    height: 100%;
     display: grid;
     grid-template-areas:
         "towns pitlord pitlord"
-        "towns creatures creatures"
-        "towns creatures creatures"
         "towns creatures creatures"
         "towns sacrifice efficient"
         "towns demons demons"
         "towns footer footer";
     grid-template-columns: 1fr 2fr 2fr;
-    grid-template-rows: repeat(6, 2fr) .5fr;
+    grid-template-rows: 2fr 4fr 2fr 2fr .8fr;
     grid-gap: 10px;
+    overflow: hidden; /* crutch for grid-gap that causes overflow on phones shomehow. */
+    margin: 0 10px 10px 10px;
 }
 
 .card {
