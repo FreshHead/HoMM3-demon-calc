@@ -20,17 +20,61 @@ const townCreatures = {
     tower: [4, 25, 30, 40]
 };
 function showCreatures(town) {
-    const creatures = townCreatures[town];
+    const creaturesHealths = townCreatures[town];
     const creaturesDiv = document.getElementById("creatures-list");
     creaturesDiv.textContent = ""; // Remove all old children.
     let offset = 0;
-    creatures.forEach(creature => {
+    creaturesHealths.forEach((creatureHealth, idx) => {
         // TODO: Сохрани здоровье для расчётов creature[0].health
         const creatureDiv = document.createElement("div");
+        creatureDiv.setAttribute("health", creatureHealth);
+        creatureDiv.classList.add("creature");
+        creatureDiv.onclick = (event) => {
+            const creaturesDivs = document.querySelectorAll(".creature");
+            creaturesDivs.forEach(creatureDiv => creatureDiv.classList.remove("selected"));
+            event.target.classList.add("selected");
+            calcResult();
+        };
         creatureDiv.style.backgroundImage = "url(img/sprite_sheets/" + town + "_creatures.png)";
         creatureDiv.style.backgroundPositionX = offset + "px";
         creaturesDiv.append(creatureDiv);
+        if (idx === 0) {
+            creatureDiv.classList.add("selected");
+            calcResult();
+        }
         offset -= 58;
     });
     // TODO: Попробуй сделать генератор, который возвращает существ по очереди.
+}
+
+function numberDown(event) {
+    event.target.nextElementSibling.stepDown();
+    calcResult();
+}
+
+function numberUp(event) {
+    event.target.previousElementSibling.stepUp();
+    calcResult();
+}
+
+
+function onInput() {
+    if (this.value.length > this.maxLength) {
+        this.value = this.value.slice(0, this.maxLength);
+    }
+    calcResult();
+}
+
+function calcResult() {
+    const selectedCreature = document.querySelectorAll(".creature.selected")[0];
+    if (selectedCreature) {
+        const pitlordsNumber = document.getElementById("pitlord-input").value;
+        const creatureHealth = selectedCreature.getAttribute("health");
+        const creatureNumber = document.getElementById("creature-input").value;
+        const result = document.getElementById("result");
+        let demonsByPitlords = Math.floor((50 * pitlordsNumber) / 35)
+        let demonsByHp = Math.floor(creatureHealth * creatureNumber / 35)
+        let demonsNumber = demonsByPitlords > demonsByHp ? demonsByHp : demonsByPitlords
+        result.textContent = demonsNumber;
+    }
 }

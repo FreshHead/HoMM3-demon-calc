@@ -42,13 +42,15 @@ header {
     grid-template-columns: 1fr 2fr 2fr;
     grid-template-rows: 2fr 4fr 2fr 2fr .8fr;
     grid-gap: 10px;
-    overflow: hidden; /* crutch for grid-gap that causes overflow on phones shomehow. */
+    overflow: hidden;
+    /* crutch for grid-gap that causes overflow on phones shomehow. */
     margin: 0 10px 10px 10px;
 }
 
 .card {
     padding: 5px;
     border: 1px solid gold;
+    background: url(../img/card_bg.png);
 }
 
 #towns-list {
@@ -88,7 +90,7 @@ header {
 }
 
 .arrow {
-    background: url(../img/arrow_left.png) 0 0 / 100% no-repeat;
+    background: url(../img/arrow.png) 0 0 / 100% no-repeat;
     width: 28px;
     height: 30px;
 }
