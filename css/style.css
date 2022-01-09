@@ -22,8 +22,11 @@ input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
 }
 
-header {
+* {
     color: white;
+}
+
+header {
     text-align: center;
     font-size: 1.6rem;
     padding: 5px;
@@ -92,9 +95,27 @@ header {
 }
 
 .arrow {
-    background: url(../img/arrow.png) 0 0 / 100% no-repeat;
     width: 28px;
     height: 30px;
+    /* z-index: 2; */
+}
+
+.arrow.left {
+    background: url(../img/left_arrow.png) 0 0 / 100% no-repeat;
+}
+
+.right.arrow {
+    background: url(../img/right_arrow.png) 0 0 / 100% no-repeat;
+}
+
+.arrow:active {
+    animation: arrow-click .2s;
+}
+
+@keyframes arrow-click {
+    100% {
+        transform: scale(0.8, 0.8);
+    }
 }
 
 .number {
@@ -123,11 +144,15 @@ header {
 
 #sacrificed-number {
     grid-area: sacrifice;
+    display: flex;
+    flex-direction: column;
 }
-
 
 #efficient-number {
     grid-area: efficient;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
 #demons-number {
@@ -143,7 +168,7 @@ header {
 }
 
 .demon-pic:hover {
-    animation: demon-hover .35s steps(3)  forwards;
+    animation: demon-hover .35s steps(3) forwards;
 }
 
 @keyframes demon-hover {
@@ -154,7 +179,6 @@ header {
 
 footer {
     grid-area: footer;
-    color: white;
     text-align: right;
 }
 
