@@ -71,10 +71,19 @@ function calcResult() {
         const pitlordsNumber = document.getElementById("pitlord-input").value;
         const creatureHealth = selectedCreature.getAttribute("health");
         const creatureNumber = document.getElementById("creature-input").value;
-        const result = document.getElementById("result");
-        let demonsByPitlords = Math.floor((50 * pitlordsNumber) / 35)
-        let demonsByHp = Math.floor(creatureHealth * creatureNumber / 35)
-        let demonsNumber = demonsByPitlords > demonsByHp ? demonsByHp : demonsByPitlords
-        result.textContent = demonsNumber;
+        const demonsByPitlords = Math.floor((50 * pitlordsNumber) / 35);
+        const sumOfHealth = creatureHealth * creatureNumber;
+        const demonsByHp = Math.floor(sumOfHealth / 35);
+        const demonsNumber = demonsByPitlords > demonsByHp ? demonsByHp : demonsByPitlords;
+
+        const resultDiv = document.getElementById("result");
+        resultDiv.textContent = demonsNumber;
+
+        const efficientDiv = document.getElementById("efficent-result")
+        const excessCreatures = Math.floor((sumOfHealth % 35) / creatureHealth);
+        const creaturesByPitlordNumber = Math.floor(demonsByPitlords * 35 / creatureHealth);
+        const effectiveByCreatureNumber = creatureNumber - excessCreatures;
+        efficientDiv.textContent = effectiveByCreatureNumber < creaturesByPitlordNumber ?
+            effectiveByCreatureNumber : creaturesByPitlordNumber;
     }
 }
