@@ -1,13 +1,21 @@
+@font-face {
+    font-family: WingsOfDarkness;
+    src: url(../fonts/Wings_of_Darkness.ttf);
+}
+
+@font-face {
+    font-family: Wentrisor;
+    src: url(../fonts/Wentrisor.ttf);
+    size-adjust: 80%;
+}
+
+
 body {
     background: url(../img/lava.png) 0 0 / 100% 100% no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-a {
-    color: #f5deb3;
 }
 
 /* Hide standard arrows for input with type="number".*/
@@ -23,10 +31,11 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 * {
-    color: white;
+    font-family: Wentrisor;
+    color: lightgoldenrodyellow;
 }
 
-header {
+header h1 {
     text-align: center;
     font-size: 1.6rem;
     padding: 5px;
@@ -55,6 +64,10 @@ header {
     padding: 5px;
     border: 1px solid gold;
     background: url(../img/card_bg.png);
+}
+
+.card .title {
+    font-family: WingsOfDarkness;
 }
 
 #towns-list {
@@ -120,9 +133,10 @@ header {
 
 .number {
     font-size: 3rem;
+    height: 3.5rem;
     width: 6rem;
     text-align: center;
-    color: lightgoldenrodyellow;
+    line-height: 3.5rem;
     background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -146,12 +160,14 @@ header {
     grid-area: sacrifice;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
 }
 
 #efficient-number {
     grid-area: efficient;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     text-align: center;
 }
 
@@ -180,6 +196,17 @@ header {
 footer {
     grid-area: footer;
     text-align: right;
+}
+
+footer p {
+    line-height: 1rem;
+    color: white;
+}
+
+a {
+    font-family: serif;
+    color: #f5deb3;
+    font-size: 1rem;
 }
 
 .center {

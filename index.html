@@ -13,7 +13,7 @@
 
 <body>
     <header>
-        <h1>Калькулятор демонения для HoMM 3</h1>
+        <h1>Калькулятор демонения для Героев 3</h1>
     </header>
     <div class="container">
         <div id="towns-list" class="card">
@@ -40,7 +40,7 @@
         </div>
         <div id="creatures-list" class="card"></div>
         <div id="sacrificed-number" class="card center">
-            <div>Пожертвовать:</div>
+            <div class="title">Пожертвовать:</div>
             <div class="center">
                 <div class="arrow left" onclick="numberDown(event)"></div>
                 <input id="creature-input" min="1" max="999" type="number" value="1" maxlength="3" class="number"
@@ -49,7 +49,7 @@
             </div>
         </div>
         <div id="efficient-number" class="card center">
-            <div>Эффективная жертва:</div>
+            <div class="title">Эффективная жертва:</div>
             <div id="efficent-result" class="number">0</div>
         </div>
         <div id="demons-number" class="card center">
