@@ -21,11 +21,11 @@ const townCreatures = {
 };
 function showCreatures(town) {
     const creaturesHealths = townCreatures[town];
+    const townNumber = Object.keys(townCreatures).indexOf(town);
     const creaturesDiv = document.getElementById("creatures-list");
     creaturesDiv.textContent = ""; // Remove all old children.
-    let offset = 0;
+    let offsetX = 0;
     creaturesHealths.forEach((creatureHealth, idx) => {
-        // TODO: Сохрани здоровье для расчётов creature[0].health
         const creatureDiv = document.createElement("div");
         creatureDiv.setAttribute("health", creatureHealth);
         creatureDiv.classList.add("creature");
@@ -35,14 +35,15 @@ function showCreatures(town) {
             event.target.classList.add("selected");
             calcResult();
         };
-        creatureDiv.style.backgroundImage = "url(img/sprite_sheets/" + town + "_creatures.png)";
-        creatureDiv.style.backgroundPositionX = offset + "px";
+        creatureDiv.style.backgroundImage = "url(img/sprite_sheets/creatures.png)";
+        creatureDiv.style.backgroundPositionX = offsetX + "px";
+        creatureDiv.style.backgroundPositionY = townNumber ? -townNumber * 64 + "px" : 0;
         creaturesDiv.append(creatureDiv);
         if (idx === 0) {
             creatureDiv.classList.add("selected");
             calcResult();
         }
-        offset -= 58;
+        offsetX -= 58;
     });
     // TODO: Попробуй сделать генератор, который возвращает существ по очереди.
 }
