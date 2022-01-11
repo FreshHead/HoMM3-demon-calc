@@ -33,7 +33,7 @@ function showCreatures(town) {
             const creaturesDivs = document.querySelectorAll(".creature");
             creaturesDivs.forEach(creatureDiv => creatureDiv.classList.remove("selected"));
             event.target.classList.add("selected");
-            calcResult();
+            showResult();
         };
         creatureDiv.style.backgroundImage = "url(img/sprite_sheets/creatures.png)";
         creatureDiv.style.backgroundPositionX = offsetX + "px";
@@ -41,7 +41,7 @@ function showCreatures(town) {
         creaturesDiv.append(creatureDiv);
         if (idx === 0) {
             creatureDiv.classList.add("selected");
-            calcResult();
+            showResult();
         }
         offsetX -= 58;
     });
@@ -50,23 +50,24 @@ function showCreatures(town) {
 
 function numberDown(event) {
     event.target.nextElementSibling.stepDown();
-    calcResult();
+    showResult();
 }
 
 function numberUp(event) {
     event.target.previousElementSibling.stepUp();
-    calcResult();
+    showResult();
 }
 
 
-function onInput() {
-    if (this.value.length > this.maxLength) {
-        this.value = this.value.slice(0, this.maxLength);
+function onInput(event) {
+    const input = event.target;
+    if (input.value.length > input.maxLength) {
+        input.value = input.value.slice(0, input.maxLength);
     }
-    calcResult();
+    showResult();
 }
 
-function calcResult() {
+function showResult() {
     const selectedCreature = document.querySelectorAll(".creature.selected")[0];
     if (selectedCreature) {
         const pitlordsNumber = document.getElementById("pitlord-input").value;
