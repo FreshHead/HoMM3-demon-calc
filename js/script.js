@@ -93,11 +93,7 @@ function showResult() {
     }
 
     function getDemonsByPitlordsNumber(pitlordsNumber) {
-        return getDemonsByHealth(getHealthByPitlords(pitlordsNumber));
-    }
-
-    function getHealthByPitlords(pitlordsNumber) {
-        return 50 * pitlordsNumber;
+        return getDemonsByHealth(50 * pitlordsNumber);
     }
 
     function getDemonsByHealth(health) {
@@ -105,7 +101,15 @@ function showResult() {
     }
 
     function getOptimalNumber(pitlordsNumber, overallHealth, creatureHealth) {
-        return Math.floor(getSmaller(getHealthByPitlords(pitlordsNumber), getOptimalHealth(overallHealth)) / creatureHealth);
+        return Math.floor(getSmaller(getByPitlordHealth(pitlordsNumber), getOptimalHealth(overallHealth)) / creatureHealth);
+    }
+
+    function getByPitlordHealth(pitlordsNumber) {
+
+        // We use getDemonsByPitlordsNumber(), because we doesn't need leftover hp. 
+        // Example: 3 pitlords * 50 hp => 150 hp; Math.floor(150 hp / 35 hp) => 4 demons; 4 demons * 35 hp = 140 hp; 140 hp is optimum for making maximum demons from 3 pitlords.
+
+        return getDemonsByPitlordsNumber(pitlordsNumber) * 35;
     }
 
     function getOptimalHealth(overallHealth) {
