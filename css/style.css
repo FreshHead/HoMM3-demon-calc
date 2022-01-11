@@ -49,7 +49,7 @@ header h1 {
     grid-template-areas:
         "towns pitlord pitlord"
         "towns creatures creatures"
-        "towns sacrifice efficient"
+        "towns sacrifice optimal"
         "towns demons demons"
         "towns footer footer";
     grid-template-columns: 1fr 2fr 2fr;
@@ -163,8 +163,8 @@ header h1 {
     justify-content: space-around;
 }
 
-#efficient-number {
-    grid-area: efficient;
+#optimal-number {
+    grid-area: optimal;
     display: flex;
     flex-direction: column;
     justify-content: space-around;

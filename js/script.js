@@ -71,19 +71,43 @@ function calcResult() {
         const pitlordsNumber = document.getElementById("pitlord-input").value;
         const creatureHealth = selectedCreature.getAttribute("health");
         const creatureNumber = document.getElementById("creature-input").value;
-        const demonsByPitlords = Math.floor((50 * pitlordsNumber) / 35);
-        const sumOfHealth = creatureHealth * creatureNumber;
-        const demonsByHp = Math.floor(sumOfHealth / 35);
-        const demonsNumber = demonsByPitlords > demonsByHp ? demonsByHp : demonsByPitlords;
+
+        const overallHealth = creatureHealth * creatureNumber;
 
         const resultDiv = document.getElementById("result");
-        resultDiv.textContent = demonsNumber;
+        resultDiv.textContent = getDemonsNumber(pitlordsNumber, overallHealth);
 
-        const efficientDiv = document.getElementById("efficent-result")
-        const excessCreatures = Math.floor((sumOfHealth % 35) / creatureHealth);
-        const creaturesByPitlordNumber = Math.floor(demonsByPitlords * 35 / creatureHealth);
-        const effectiveByCreatureNumber = creatureNumber - excessCreatures;
-        efficientDiv.textContent = effectiveByCreatureNumber < creaturesByPitlordNumber ?
-            effectiveByCreatureNumber : creaturesByPitlordNumber;
+        const optimalDiv = document.getElementById("efficent-result");
+        optimalDiv.textContent = getOptimalNumber(pitlordsNumber, overallHealth, creatureHealth);
+    }
+
+
+    function getDemonsNumber(pitlordsNumber, overallHealth) {
+        return getSmaller(getDemonsByPitlordsNumber(pitlordsNumber), getDemonsByHealth(overallHealth));
+    }
+
+    function getSmaller(first, second) {
+        return first < second ? first : second;
+    }
+
+    function getDemonsByPitlordsNumber(pitlordsNumber) {
+        return getDemonsByHealth(getHealthByPitlords(pitlordsNumber));
+    }
+
+    function getHealthByPitlords(pitlordsNumber) {
+        return 50 * pitlordsNumber;
+    }
+
+    function getDemonsByHealth(health) {
+        return Math.floor(health / 35);
+    }
+
+    function getOptimalNumber(pitlordsNumber, overallHealth, creatureHealth) {
+        return Math.floor(getSmaller(getHealthByPitlords(pitlordsNumber), getOptimalHealth(overallHealth)) / creatureHealth);
+    }
+
+    function getOptimalHealth(overallHealth) {
+        const leftovers = overallHealth % 35;
+        return overallHealth - leftovers;
     }
 }
