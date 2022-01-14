@@ -52,7 +52,7 @@ header h1 {
         "towns pitlord pitlord"
         "towns creatures creatures"
         "towns sacrifice optimal"
-        "towns demons demons"
+        "towns demons cost"
         "towns footer footer";
     grid-template-columns: 1fr 2fr 2fr;
     grid-template-rows: 2fr 4fr 2fr 2fr .8fr;
@@ -192,6 +192,24 @@ header h1 {
     100% {
         background-position: -150px 0;
     }
+}
+
+#cost {
+    grid-area: cost;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+}
+
+#cost-result {
+    font-size: 1.5rem;
+}
+
+#cost-pic {
+    width: 58px;
+    height: 35px;
+    background: url(../img/cost.png) no-repeat;
 }
 
 footer {

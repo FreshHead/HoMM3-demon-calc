@@ -7,27 +7,28 @@ document.addEventListener("DOMContentLoaded", () => {
         this.showCreatures(event.target.id);
     });
 });
-const townCreatures = {
-    castle: [10, 10, 25, 35, 40],
-    conflux: [3],
-    cove: [4, 15, 30, 35],
-    dungeon: [5, 6, 14, 22, 25, 30, 50],
-    fortress: [6, 14, 15, 20, 35],
-    inferno: [4, 13, 25],
-    neutral: [1, 4, 10, 20, 15, 30, 35, 15, 40, 50, 30],
-    rampart: [8, 10, 20, 15, 30, 55],
-    stronghold: [5, 10, 15, 20, 40],
-    tower: [4, 25, 30, 40]
+const towns = {
+    castle: [{ hp: 10, cost: 60 }, { hp: 10, cost: 100 }, { hp: 25, cost: 200 }, { hp: 35, cost: 300 }, { hp: 30, cost: 400 }],
+    conflux: [{ hp: 3, cost: 25 }],
+    cove: [{ hp: 4, cost: 35 }, { hp: 15, cost: 110 }, { hp: 30, cost: 275 }, { hp: 35, cost: 515 }],
+    dungeon: [{ hp: 5, cost: 50 }, { hp: 6, cost: 65 }, { hp: 14, cost: 130 }, { hp: 22, cost: 250 }, { hp: 25, cost: 300 }, { hp: 30, cost: 330 }, { hp: 50, cost: 500 }],
+    fortress: [{ hp: 6, cost: 50 }, { hp: 14, cost: 110 }, { hp: 15, cost: 140 }, { hp: 20, cost: 220 }, { hp: 35, cost: 325 }],
+    inferno: [{ hp: 4, cost: 50 }, { hp: 13, cost: 125 }, { hp: 25, cost: 200 }],
+    neutral: [{ hp: 1, cost: 0 }, { hp: 4, cost: 0 }, { hp: 10, cost: 100 }, { hp: 20, cost: 100 }, { hp: 15, cost: 150 }, { hp: 30, cost: 200 }, { hp: 35, cost: 300 }, { hp: 15, cost: 400 }, { hp: 40, cost: 500 }, { hp: 50, cost: 600 }, { hp: 30, cost: 750 }],
+    rampart: [{ hp: 8, cost: 70 }, { hp: 10, cost: 90 }, { hp: 20, cost: 120 }, { hp: 15, cost: 200 }, { hp: 30, cost: 250 }, { hp: 55, cost: 350 }],
+    stronghold: [{ hp: 5, cost: 40 }, { hp: 10, cost: 100 }, { hp: 15, cost: 150 }, { hp: 20, cost: 165 }, { hp: 40, cost: 300 }],
+    tower: [{ hp: 4, cost: 30 }, { hp: 25, cost: 350 }, { hp: 30, cost: 450 }, { hp: 40, cost: 550 }]
 };
 function showCreatures(town) {
-    const creaturesHealths = townCreatures[town];
-    const townNumber = Object.keys(townCreatures).indexOf(town);
+    const townCreatures = towns[town];
+    const townNumber = Object.keys(towns).indexOf(town);
     const creaturesDiv = document.getElementById("creatures-list");
     creaturesDiv.textContent = ""; // Remove all old children.
     let offsetX = 0;
-    creaturesHealths.forEach((creatureHealth, idx) => {
+    townCreatures.forEach((creature, idx) => {
         const creatureDiv = document.createElement("div");
-        creatureDiv.setAttribute("health", creatureHealth);
+        creatureDiv.setAttribute("health", creature.hp);
+        creatureDiv.setAttribute("cost", creature.cost);
         creatureDiv.classList.add("creature");
         creatureDiv.onclick = (event) => {
             const creaturesDivs = document.querySelectorAll(".creature");
@@ -72,6 +73,7 @@ function showResult() {
     if (selectedCreature) {
         const pitlordsNumber = document.getElementById("pitlord-input").value;
         const creatureHealth = selectedCreature.getAttribute("health");
+        const creatureCost = selectedCreature.getAttribute("cost");
         const creatureNumber = document.getElementById("creature-input").value;
 
         const overallHealth = creatureHealth * creatureNumber;
@@ -80,7 +82,11 @@ function showResult() {
         resultDiv.textContent = getDemonsNumber(pitlordsNumber, overallHealth);
 
         const optimalDiv = document.getElementById("efficent-result");
-        optimalDiv.textContent = getOptimalNumber(pitlordsNumber, overallHealth, creatureHealth);
+        const optimalNumber = getOptimalNumber(pitlordsNumber, overallHealth, creatureHealth);
+        optimalDiv.textContent = optimalNumber;
+
+        const costDiv = document.getElementById("cost-result");
+        costDiv.textContent = Number(creatureCost * optimalNumber).toLocaleString();
     }
 
 
