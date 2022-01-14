@@ -227,6 +227,11 @@ a {
     box-shadow: 0 0 0 1px gold;
 }
 
+#how-to-link {
+    font-weight: 600;
+    text-shadow: 2px 2px black;
+}
+
 #how-to {
     display: none;
 }
