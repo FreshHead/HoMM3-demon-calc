@@ -38,7 +38,7 @@ header h1 {
 }
 
 @media only screen and (max-width: 768px) {
-    header h1{
+    header h1 {
         font-size: 5vw;
     }
 }
@@ -210,7 +210,7 @@ footer p {
 a {
     font-family: serif;
     color: #f5deb3;
-    font-size: .9rem;
+    font-size: 0.9rem;
 }
 
 .center {
@@ -229,6 +229,12 @@ a {
 
 #how-to {
     display: none;
+}
+
+#how-to #pitlord-window {
+    height: 297px;
+    width: 311px;
+    margin-top: 0.4rem;
 }
 
 #how-to:target {
@@ -267,10 +273,6 @@ a {
 
 #how-to h2 {
     margin-top: 0.8rem;
-}
-
-#how-to img {
-    padding: .5rem;
 }
 
 #how-to p {
