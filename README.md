@@ -20,4 +20,5 @@
 
 ## Благодарность
 Святослав Глитчев — за фавиконку.
+
 Cyrus Annihilator — за спрайты https://cyrusannihilator.blogspot.com/.
