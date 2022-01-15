@@ -37,12 +37,6 @@ header h1 {
     text-shadow: 2px 2px black;
 }
 
-@media only screen and (max-width: 768px) {
-    header h1 {
-        font-size: 5vw;
-    }
-}
-
 .container {
     max-width: 375px;
     max-height: 720px;
@@ -74,6 +68,7 @@ header h1 {
 
 #towns-list {
     grid-area: towns;
+    min-width: 40px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -324,4 +319,20 @@ a {
 
 .ok-button:active {
     background-position: -64px;
+}
+
+@media only screen and (max-width: 768px) {
+    header h1 {
+        font-size: 5vw;
+    }
+}
+
+@media only screen and (max-height: 620px) {
+    .container {
+        grid-gap: 1px;
+    }
+    
+    .card {
+        border-color: burlywood;
+    }
 }

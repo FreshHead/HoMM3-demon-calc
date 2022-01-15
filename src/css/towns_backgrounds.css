@@ -26,6 +26,10 @@
     background-image: url(../img/towns/neutral.gif);
 }
 
+#neutral-hota {
+    background-image: url(../img/towns/neutral_hota.gif);
+}
+
 #rampart {
     background-image: url(../img/towns/rampart.gif);
 }

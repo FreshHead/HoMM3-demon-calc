@@ -14,7 +14,8 @@ const towns = {
     dungeon: [{ hp: 5, cost: 50 }, { hp: 6, cost: 65 }, { hp: 14, cost: 130 }, { hp: 22, cost: 250 }, { hp: 25, cost: 300 }, { hp: 30, cost: 330 }, { hp: 50, cost: 500 }],
     fortress: [{ hp: 6, cost: 50 }, { hp: 14, cost: 110 }, { hp: 15, cost: 140 }, { hp: 20, cost: 220 }, { hp: 35, cost: 325 }],
     inferno: [{ hp: 4, cost: 50 }, { hp: 13, cost: 125 }, { hp: 25, cost: 200 }],
-    neutral: [{ hp: 1, cost: 0 }, { hp: 4, cost: 0 }, { hp: 10, cost: 100 }, { hp: 20, cost: 100 }, { hp: 15, cost: 150 }, { hp: 30, cost: 200 }, { hp: 35, cost: 300 }, { hp: 15, cost: 400 }, { hp: 40, cost: 500 }, { hp: 50, cost: 600 }, { hp: 30, cost: 750 }],
+    neutral: [{ hp: 1, cost: 0 }, { hp: 4, cost: 0 }, { hp: 10, cost: 100 }, { hp: 15, cost: 150 }, { hp: 30, cost: 200 }, { hp: 35, cost: 300 }, { hp: 40, cost: 500 }, { hp: 30, cost: 750 }],
+    "neutral-hota": [{ hp: 20, cost: 100 }, { hp: 15, cost: 400 }, { hp: 50, cost: 600 }],
     rampart: [{ hp: 8, cost: 70 }, { hp: 10, cost: 90 }, { hp: 20, cost: 120 }, { hp: 15, cost: 200 }, { hp: 30, cost: 250 }, { hp: 55, cost: 350 }],
     stronghold: [{ hp: 5, cost: 40 }, { hp: 10, cost: 100 }, { hp: 15, cost: 150 }, { hp: 20, cost: 165 }, { hp: 40, cost: 300 }],
     tower: [{ hp: 4, cost: 30 }, { hp: 25, cost: 350 }, { hp: 30, cost: 450 }, { hp: 40, cost: 550 }]
@@ -76,13 +77,12 @@ function showResult() {
         const creatureCost = selectedCreature.getAttribute("cost");
         const creatureNumber = document.getElementById("creature-input").value;
 
-        const overallHealth = creatureHealth * creatureNumber;
-
         const resultDiv = document.getElementById("result");
-        resultDiv.textContent = getDemonsNumber(pitlordsNumber, overallHealth);
+        const demonNumber = getDemonsNumber(pitlordsNumber, creatureNumber, creatureHealth);
+        resultDiv.textContent = demonNumber;
 
         const optimalDiv = document.getElementById("efficent-result");
-        const optimalNumber = getOptimalNumber(pitlordsNumber, overallHealth, creatureHealth);
+        const optimalNumber = getOptimalNumber(pitlordsNumber, creatureNumber, creatureHealth, demonNumber);
         optimalDiv.textContent = optimalNumber;
 
         const costDiv = document.getElementById("cost-result");
@@ -90,12 +90,14 @@ function showResult() {
     }
 
 
-    function getDemonsNumber(pitlordsNumber, overallHealth) {
-        return getSmaller(getDemonsByPitlordsNumber(pitlordsNumber), getDemonsByHealth(overallHealth));
+    function getDemonsNumber(pitlordsNumber, creatureNumber, creatureHealth) {
+        const overallHealth = creatureNumber * creatureHealth;
+        return getSmaller(getDemonsByPitlordsNumber(pitlordsNumber), getDemonsByHealth(overallHealth), creatureNumber);
     }
 
-    function getSmaller(first, second) {
-        return first < second ? first : second;
+    function getSmaller(...numbers) {
+        // TODO: Используй Math.min()
+        return numbers.reduce((prev, cur) => prev > cur ? cur : prev);
     }
 
     function getDemonsByPitlordsNumber(pitlordsNumber) {
@@ -106,8 +108,10 @@ function showResult() {
         return Math.floor(health / 35);
     }
 
-    function getOptimalNumber(pitlordsNumber, overallHealth, creatureHealth) {
-        return Math.floor(getSmaller(getByPitlordHealth(pitlordsNumber), getOptimalHealth(overallHealth)) / creatureHealth);
+    function getOptimalNumber(pitlordsNumber, creatureNumber, creatureHealth, demonNumber) {
+        const overallHealth = creatureNumber * creatureHealth;
+        const optimalNumber = Math.floor(getSmaller(getByPitlordHealth(pitlordsNumber), getOptimalHealth(overallHealth)) / creatureHealth);
+        return optimalNumber < demonNumber ? demonNumber : optimalNumber;
     }
 
     function getByPitlordHealth(pitlordsNumber) {
