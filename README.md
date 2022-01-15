@@ -17,3 +17,7 @@
 
 ## Совместимость с игрой
 Данные для существ собраны для дополнения Horn Of the Abyss.
+
+## Благодарность
+Святослав Глитчев — за фавиконку.
+Cyrus Annihilator — за спрайты https://cyrusannihilator.blogspot.com/.
