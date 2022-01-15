@@ -175,7 +175,7 @@ header h1 {
 #demons-number {
     grid-area: demons;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .demon-pic {
