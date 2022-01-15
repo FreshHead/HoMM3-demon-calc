@@ -21,4 +21,4 @@
 ## Благодарность
 Святослав Глитчев — за фавиконку.
 
-Cyrus Annihilator — за спрайты https://cyrusannihilator.blogspot.com/.
+Cyrus Annihilator — за спрайты из героев. Его сайт: https://cyrusannihilator.blogspot.com/.
