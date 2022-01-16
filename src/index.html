@@ -11,9 +11,8 @@
     <link rel="stylesheet" href="css/nullify.css">
     <link rel="stylesheet" href="css/towns_backgrounds.css">
     <link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript" src="js/script.js"></script>
-    <script type="text/javascript" src="js/calculator.js"></script>
-    <link rel="icon" href="img/favicon.png">
+    <script type="module" src="js/app.mjs"></script>
+    <link rel="icon" href="https://demon-calc.ru/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -37,10 +36,9 @@
         <div id="pitlords-number" class="card">
             <div class="pitlord-pic"></div>
             <div class="center">
-                <div class="arrow left" onclick="numberDown(event)"></div>
-                <input id="pitlord-input" min="1" max="999" type="number" value="1" maxlength="3" class="number"
-                    oninput="onInput(event)">
-                <div class="arrow right" onclick="numberUp(event)"></div>
+                <div class="arrow left"></div>
+                <input id="pitlord-input" min="1" max="999" type="number" value="1" maxlength="3" class="number">
+                <div class="arrow right"></div>
             </div>
             <div class=" pitlord-pic mirror"></div>
         </div>
@@ -48,10 +46,9 @@
         <div id="sacrificed-number" class="card center">
             <div class="title">Пожертвовать:</div>
             <div class="center">
-                <div class="arrow left" onclick="numberDown(event)"></div>
-                <input id="creature-input" min="1" max="999" type="number" value="1" maxlength="3" class="number"
-                    oninput="onInput(event)">
-                <div class="arrow right" onclick="numberUp(event)"></div>
+                <div class="arrow left"></div>
+                <input id="creature-input" min="1" max="999" type="number" value="1" maxlength="3" class="number">
+                <div class="arrow right"></div>
             </div>
         </div>
         <div id="optimal-number" class="card center">
@@ -68,7 +65,7 @@
             <div id="cost-pic"></div>
         </div>
         <footer class="card">
-            <a id="how-to-link" href="#how-to" _onclick="document.getElementById('how-to-dialog').showModal()">Что
+            <a id="how-to-link" href="#how-to">Что
                 это?</a>
             <div>
                 <p>Александр Костарев</p>
