@@ -40,3 +40,18 @@ npm test
 Святослав Глитчев — за фавиконку.
 
 Cyrus Annihilator — за спрайты из героев. Его сайт: https://cyrusannihilator.blogspot.com/.
+
+## Технические вопросы
+Вопрос: Почему не используешь расширение *.mjs?
+Ответ: Сервер моего текущего хостинга отдаёт *.mjs файлы с Content-Type: "application/octet-stream" из-за чего я получаю ошибки типа:
+Firefox:
+```
+Loading module from “http://localhost/file.mjs” was blocked because of a disallowed MIME type (“application/octet-stream”).
+Loading failed for the module with source “http://localhost/file.mjs”.
+```
+Chrome:
+```
+Failed to load module script: The server responded with a non-JavaScript MIME type of "application/octet-stream". Strict MIME type checking is enforced for module scripts per HTML spec.
+```
+
+
