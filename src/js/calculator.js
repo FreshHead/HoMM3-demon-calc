@@ -16,9 +16,17 @@ const getDemonsByHealth = function (health) {
     return Math.floor(health / 35);
 }
 
-const getOptimalNumber = function (pitlordsNumber, creatureNumber, creatureHealth, demonNumber) {
+const getOptimalNumber = function (...params) {
+    const [pitlordsNumber, creatureNumber, creatureHealth, demonNumber] = params;
+    if (params.some(param => !Number.isInteger(param))) { // Check parameters just in case.
+        console.warn("All parameters must be integers!");
+    }
+    if (creatureHealth === 0) {
+        console.error("Creature health cannot be '0'!");
+        return 0;
+    }
     const overallHealth = creatureNumber * creatureHealth;
-    const optimalNumber = Math.floor(getSmaller(getByPitlordHealth(pitlordsNumber), getOptimalHealth(overallHealth)) / creatureHealth);
+    const optimalNumber = Math.ceil(getSmaller(getByPitlordHealth(pitlordsNumber), getOptimalHealth(overallHealth)) / creatureHealth);
     return optimalNumber < demonNumber ? demonNumber : optimalNumber;
 }
 

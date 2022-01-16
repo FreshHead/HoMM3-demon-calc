@@ -84,10 +84,10 @@ function onInput(event) {
 function showResult() {
     const selectedCreature = document.querySelectorAll(".creature.selected")[0];
     if (selectedCreature) {
-        const pitlordsNumber = document.getElementById("pitlord-input").value;
-        const creatureHealth = selectedCreature.getAttribute("health");
-        const creatureCost = selectedCreature.getAttribute("cost");
-        const creatureNumber = document.getElementById("creature-input").value;
+        const pitlordsNumber = Number(document.getElementById("pitlord-input").value);
+        const creatureHealth = Number(selectedCreature.getAttribute("health"));
+        const creatureCost = Number(selectedCreature.getAttribute("cost"));
+        const creatureNumber = Number(document.getElementById("creature-input").value);
 
         const resultDiv = document.getElementById("result");
         const demonNumber = calc.getDemonsNumber(pitlordsNumber, creatureNumber, creatureHealth);

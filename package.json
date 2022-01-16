@@ -4,6 +4,7 @@
     "devDependencies": {
         "serve": "^13.0.2"
     },
+    "type": "module",
     "scripts": {
         "start": "serve ./src",
         "test": "node ./test/calc_test.js"

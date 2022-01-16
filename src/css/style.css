@@ -60,11 +60,7 @@ header h1 {
 .card {
     padding: 5px;
     border: 1px solid gold;
-    background: url(../img/card_bg.webP);
-}
-
-.card .title {
-    font-family: Wentrisor, Arial, Helvetica, sans-serif;
+    background: url(../img/card_bg.webp);
 }
 
 #towns-list {

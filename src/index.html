@@ -35,6 +35,7 @@
         </div>
         <div id="pitlords-number" class="card">
             <div class="pitlord-pic"></div>
+            <!-- <label for="pitlord-input">Количество питлордов:</label> -->
             <div class="center">
                 <div class="arrow left"></div>
                 <input id="pitlord-input" min="1" max="999" type="number" value="1" maxlength="3" class="number">
@@ -44,7 +45,7 @@
         </div>
         <div id="creatures-list" class="card"></div>
         <div id="sacrificed-number" class="card center">
-            <div class="title">Пожертвовать:</div>
+            <label for="creature-input">Пожертвовать:</label>
             <div class="center">
                 <div class="arrow left"></div>
                 <input id="creature-input" min="1" max="999" type="number" value="1" maxlength="3" class="number">
@@ -52,15 +53,15 @@
             </div>
         </div>
         <div id="optimal-number" class="card center">
-            <div class="title">Оптимальная жертва:</div>
-            <div id="efficent-result" class="number">0</div>
+            <label for="efficent-result">Оптимальная жертва:</label>
+            <output id="efficent-result" class="number">0</output>
         </div>
         <div id="demons-number" class="card center">
             <div class="demon-pic"></div>
-            <div id="result" class="number">0</div>
+            <output id="result" class="number">0</output>
         </div>
         <div id="cost" class="card">
-            <div id="cost-result" class="number">0</div>
+            <output id="cost-result" class="number">0</output>
             <div id="cost-pic"></div>
         </div>
         <footer class="card">
