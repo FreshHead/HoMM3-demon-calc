@@ -1,4 +1,4 @@
-import calc from "./calculator.mjs";
+import calc from "./calculator.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -49,7 +49,7 @@ function showCreatures(town) {
             event.target.classList.add("selected");
             showResult();
         };
-        creatureDiv.style.backgroundImage = "url(img/sprite_sheets/creatures.png)";
+        creatureDiv.style.backgroundImage = "url(img/sprite_sheets/creatures.webp)";
         creatureDiv.style.backgroundPositionX = offsetX + "px";
         creatureDiv.style.backgroundPositionY = townNumber ? -townNumber * 64 + "px" : 0;
         creaturesDiv.append(creatureDiv);

@@ -1,4 +1,4 @@
-import calc from "../src/js/calculator.mjs";
+import calc from "../src/js/calculator.js";
 import assert from "assert/strict";
 // Use Node to run this simple tests.
 

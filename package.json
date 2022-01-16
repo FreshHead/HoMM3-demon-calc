@@ -6,6 +6,6 @@
     },
     "scripts": {
         "start": "serve ./src",
-        "test": "node ./test/calc_test.mjs"
+        "test": "node ./test/calc_test.js"
     }
 }
