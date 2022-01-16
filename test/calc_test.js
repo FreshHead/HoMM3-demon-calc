@@ -20,16 +20,7 @@ import assert from "assert/strict";
         [[10, 10, 0], 0, "Zero creature hp"],
         [[9999, 9999, 9999], 9999, "A lot of everything"],
     ];
-
-    for (const test of tests) {
-        const [params, exptected, name] = test;
-        try {
-            console.log("Started: " + name + " test.");
-            assert.strictEqual(calc.getDemonsNumber(...params), exptected, name);
-        } catch (err) {
-            console.log(err);
-        }
-    }
+    runTests(calc.getDemonsNumber, tests);
 }
 
 { // getOptimalNumber block.
@@ -50,15 +41,17 @@ import assert from "assert/strict";
         [[10, 10, 0, 0], 0, "Zero creature hp"],
         [[9999, 9999, 9999, 9999], 9999, "A lot of everything"],
     ];
+    runTests(calc.getOptimalNumber, tests);
+}
 
+function runTests(testedFunction, tests) {
     for (const test of tests) {
         const [params, exptected, name] = test;
         try {
             console.log("Started: " + name + " test.");
-            assert.strictEqual(calc.getOptimalNumber(...params), exptected, name);
+            assert.strictEqual(testedFunction(...params), exptected, name);
         } catch (err) {
             console.log(err);
         }
     }
-
 }
