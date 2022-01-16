@@ -1,4 +1,11 @@
 {
     "name": "heroes3-demonology",
-    "version": "0.1.0"
+    "version": "0.1.0",
+    "devDependencies": {
+        "serve": "^13.0.2"
+    },
+    "scripts": {
+        "start": "serve ./src",
+        "test": "node ./test/calc_test.mjs"
+    }
 }
