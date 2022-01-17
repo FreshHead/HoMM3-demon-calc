@@ -1,11 +1,6 @@
 const getDemonsNumber = function (pitlordsNumber, creatureNumber, creatureHealth) {
     const overallHealth = creatureNumber * creatureHealth;
-    return getSmaller(getDemonsByPitlordsNumber(pitlordsNumber), getDemonsByHealth(overallHealth), creatureNumber);
-}
-
-const getSmaller = function (...numbers) {
-    // TODO: Используй Math.min()
-    return numbers.reduce((prev, cur) => prev > cur ? cur : prev);
+    return Math.min(getDemonsByPitlordsNumber(pitlordsNumber), getDemonsByHealth(overallHealth), creatureNumber);
 }
 
 const getDemonsByPitlordsNumber = function (pitlordsNumber) {
@@ -26,7 +21,7 @@ const getOptimalNumber = function (...params) {
         return 0;
     }
     const overallHealth = creatureNumber * creatureHealth;
-    const optimalNumber = Math.ceil(getSmaller(getByPitlordHealth(pitlordsNumber), getOptimalHealth(overallHealth)) / creatureHealth);
+    const optimalNumber = Math.ceil(Math.min(getByPitlordHealth(pitlordsNumber), getOptimalHealth(overallHealth)) / creatureHealth);
     return optimalNumber < demonNumber ? demonNumber : optimalNumber;
 }
 
@@ -43,4 +38,4 @@ const getOptimalHealth = function (overallHealth) {
     return overallHealth - leftovers;
 }
 
-export default Object.create({ getDemonsNumber: getDemonsNumber, getOptimalNumber: getOptimalNumber });
+export default { getDemonsNumber: getDemonsNumber, getOptimalNumber: getOptimalNumber };
