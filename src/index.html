@@ -33,9 +33,9 @@
             <div id="stronghold" class="town"></div>
             <div id="tower" class="town"></div>
         </div>
-        <div id="pitlords-number" class="card">
+        <div id="pitlords-number" class="card panel">
+            <label for="pitlord-input">Питлордов:</label>
             <div class="pitlord-pic"></div>
-            <!-- <label for="pitlord-input">Количество питлордов:</label> -->
             <div class="center">
                 <div class="arrow left"></div>
                 <input id="pitlord-input" min="1" max="999" type="number" value="1" maxlength="3" class="number">
@@ -43,8 +43,14 @@
             </div>
             <div class=" pitlord-pic mirror"></div>
         </div>
+        <div id="artifacts-list" class="card">
+            <div id="ring_of_Vitality"></div>
+            <div id="ring_of_Life"></div>
+            <div id="vial_of_Lifeblood"></div>
+            <div id="elixir_of_Life"></div>
+        </div>
         <div id="creatures-list" class="card"></div>
-        <div id="sacrificed-number" class="card center">
+        <div id="sacrificed-number" class="card panel">
             <label for="creature-input">Пожертвовать:</label>
             <div class="center">
                 <div class="arrow left"></div>
@@ -52,15 +58,18 @@
                 <div class="arrow right"></div>
             </div>
         </div>
-        <div id="optimal-number" class="card center">
-            <label for="efficent-result">Оптимальная жертва:</label>
+        <div id="optimal-number" class="card panel">
+            <label for="efficent-result">Оптимально:</label>
             <output id="efficent-result" class="number">0</output>
         </div>
-        <div id="demons-number" class="card center">
+        <div id="demons-number" class="card panel">
+            <label for="result">Демонов:</label>
             <div class="demon-pic"></div>
             <output id="result" class="number">0</output>
+            <div class="demon-pic mirror"></div>
         </div>
-        <div id="cost" class="card">
+        <div id="cost" class="card panel">
+            <label for="cost-result">Стоимость:</label>
             <output id="cost-result" class="number">0</output>
             <div id="cost-pic"></div>
         </div>

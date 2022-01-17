@@ -39,28 +39,38 @@ header h1 {
 }
 
 .container {
-    max-width: 375px;
+    max-width: 450px;
     max-height: 720px;
     margin: 0 auto;
     display: grid;
     grid-template-areas:
         "towns pitlord pitlord"
-        "towns creatures creatures"
-        "towns sacrifice optimal"
-        "towns demons cost"
-        "towns footer footer";
-    grid-template-columns: 1fr 2fr 2fr;
-    grid-template-rows: 2fr 4fr 2fr 2fr .8fr;
+        "towns artifacts artifacts"
+        "towns creatures creatures "
+        "towns sacrifice optimal "
+        "towns demons cost "
+        "towns footer footer ";
+    grid-template-columns: 60px 180px 180px;
+    grid-template-rows: 105px 68px 145px 105px 105px .8fr;
     grid-gap: 10px;
     overflow: hidden;
     /* crutch for grid-gap that causes overflow on phones shomehow. */
     margin: 0 10px 10px 10px;
 }
 
+
 .card {
+    width: 100%;
     padding: 5px;
     border: 1px solid gold;
     background: url(../img/card_bg.webp);
+}
+
+.panel {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center
 }
 
 #towns-list {
@@ -81,14 +91,16 @@ header h1 {
 
 #pitlords-number {
     grid-area: pitlord;
-    display: flex;
-    justify-content: space-between;
+    /*👉display: flex;
+    justify-content: space-between;👈*/
 }
 
 .pitlord-pic {
     height: 100px;
     width: 50px;
-    background: url(../img/sprite_sheets/pitlord.webp) no-repeat;
+    position: absolute;
+    left: 0;
+    background: url(../img/sprite_sheets/pitlord.webp) 0 0 / auto 100% no-repeat;
 }
 
 .pitlord-pic:hover {
@@ -99,6 +111,13 @@ header h1 {
     100% {
         background-position: -400px 0;
     }
+}
+
+label {
+    position: absolute;
+    top: 5px;
+    width: 100%;
+    text-align: center;
 }
 
 .arrow {
@@ -124,6 +143,36 @@ header h1 {
     }
 }
 
+#artifacts-list {
+    grid-area: artifacts;
+    display: flex;
+    justify-content: space-around;
+}
+
+#artifacts-list div {
+    width: 58px;
+    height: 58px;
+    margin-right: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-size: 100%;
+}
+
+#ring_of_Vitality {
+    background: url(../img/artifacts/ring_of_Vitality.webp);
+}
+
+#ring_of_Life {
+    background: url(../img/artifacts/ring_of_Life.webp);
+}
+
+#elixir_of_Life {
+    background: url(../img/artifacts/elixir_of_Life.webp);
+}
+
+#vial_of_Lifeblood {
+    background: url(../img/artifacts/vial_of_Lifeblood.webp);
+}
+
 .number {
     font-size: 3rem;
     height: 3.5rem;
@@ -141,27 +190,27 @@ header h1 {
     align-content: flex-start;
 }
 
-#creatures-list div {
+#creatures-list .creature {
     background-repeat: no-repeat;
     border: 1px solid grey;
     width: 58px;
     height: 64px;
-    margin: 0 0 5px 0;
+    margin: 0 1px 5px 0;
 }
 
 #sacrificed-number {
     grid-area: sacrifice;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: space-around; */
 }
 
 #optimal-number {
     grid-area: optimal;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    text-align: center;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: space-around; */
+    /* text-align: center; */
 }
 
 #demons-number {
@@ -171,9 +220,16 @@ header h1 {
 }
 
 .demon-pic {
+    position: absolute;
+    left: 0;
     height: 100px;
     width: 50px;
     background: url(../img/sprite_sheets/demon.webp) no-repeat;
+}
+
+.demon-pic.mirror {
+    left: auto;
+    right: 0;
 }
 
 .demon-pic:hover {
@@ -188,10 +244,10 @@ header h1 {
 
 #cost {
     grid-area: cost;
-    display: flex;
+    /*👉    display: flex;
     flex-direction: column;
     justify-content: end;
-    align-items: center;
+    align-items: center;👈*/
 }
 
 #cost-result {
@@ -199,9 +255,11 @@ header h1 {
 }
 
 #cost-pic {
+    position: absolute;
+    bottom: 0;
     width: 58px;
     height: 35px;
-    background: url(../img/cost.webp) no-repeat;
+    background: url(../img/cost.webp) 0 0 / 100% 100% no-repeat;
 }
 
 footer {
@@ -231,6 +289,8 @@ a {
 
 .mirror {
     transform: scaleX(-1);
+    left: auto;
+    right: 0;
 }
 
 .selected {
@@ -324,12 +384,41 @@ a {
     }
 }
 
-@media only screen and (max-height: 620px) {
+
+
+@media only screen and (max-width: 375px) {
+    .container {
+        /* grid-gap: 1px; */
+        grid-template-columns: 50px 150px 150px;
+    }
+}
+
+@media only screen and ((max-width: 320px) or (max-height: 568px)) {
     .container {
         grid-gap: 1px;
+        grid-template-rows: 70px 68px 145px 105px 105px 32px;
+        grid-template-columns: 50px 150px 100px;
     }
 
     .card {
         border-color: burlywood;
+    }
+
+    #pitlords-number {
+        justify-content: flex-end;
+    }
+
+    #pitlords-number label {
+        width: auto;
+        top: auto;
+        left: 5px;
+    }
+
+     .pitlord-pic {
+        display: none;
+    }
+
+    .demon-pic {
+        display: none;
     }
 }

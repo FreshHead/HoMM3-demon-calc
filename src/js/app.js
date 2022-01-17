@@ -1,7 +1,6 @@
 import calc from "./calculator.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-
     document.querySelectorAll(".arrow.left")
         .forEach(oDiv => oDiv.onclick = numberDown);
 
