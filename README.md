@@ -1,6 +1,6 @@
 # heroes3_demonology_calc
 
-Сайт про механику демонения из игры Heroes of Might and Magic 3. Сам сайт - https://homm3demonology.neocities.org/.
+Сайт про механику демонения из игры Heroes of Might and Magic 3. Сам сайт - https://demon-calc.ru/.
 
 Демонение (демонология) это способность "Адских отродьев", на слэнге "Питлордов" или "Питов", создавать демонов из мёртвых отрядов союзников.
 Сами "Питлорды" это существа пятого уровня в замке расы "Инферно".
@@ -44,7 +44,7 @@ Cyrus Annihilator — за спрайты из героев. Его сайт: ht
 ## Технические вопросы
 ### Вопрос: Почему не используешь расширение *.mjs?
 ### Ответ:
-Сервер моего текущего хостинга отдаёт *.mjs файлы с Content-Type: "application/octet-stream" из-за чего я получаю ошибки в браузере:
+Сервер моего текущего хостинга отдаёт *.mjs файлы с Content-Type: "application/octet-stream" что приводит к ошибкам в браузерах:
 Firefox:
 ```
 Loading module from “http://localhost/file.mjs” was blocked because of a disallowed MIME type (“application/octet-stream”).
