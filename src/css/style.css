@@ -149,12 +149,17 @@ label {
     justify-content: space-around;
 }
 
-#artifacts-list div {
+#artifacts-list .artifact {
     width: 58px;
     height: 58px;
     margin-right: 5px;
     background-color: rgba(0, 0, 0, 0.5);
     background-size: 100%;
+    border: 1px solid grey;
+}
+
+#component-artifacts {
+    display: flex;
 }
 
 #ring_of_Vitality {
@@ -166,7 +171,11 @@ label {
 }
 
 #elixir_of_Life {
-    background: url(../img/artifacts/elixir_of_Life.webp);
+    background: url(../img/artifacts/elixir_of_Life.webp) no-repeat;
+}
+
+#artifacts-list #elixir_of_Life {
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 #vial_of_Lifeblood {
@@ -200,17 +209,10 @@ label {
 
 #sacrificed-number {
     grid-area: sacrifice;
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: space-around; */
 }
 
 #optimal-number {
     grid-area: optimal;
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: space-around; */
-    /* text-align: center; */
 }
 
 #demons-number {
@@ -244,10 +246,6 @@ label {
 
 #cost {
     grid-area: cost;
-    /*👉    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: center;👈*/
 }
 
 #cost-result {
@@ -388,7 +386,6 @@ a {
 
 @media only screen and (max-width: 375px) {
     .container {
-        /* grid-gap: 1px; */
         grid-template-columns: 50px 150px 150px;
     }
 }
@@ -414,7 +411,7 @@ a {
         left: 5px;
     }
 
-     .pitlord-pic {
+    .pitlord-pic {
         display: none;
     }
 

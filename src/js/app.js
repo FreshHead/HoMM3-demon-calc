@@ -10,11 +10,26 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("input.number")
         .forEach(oDiv => oDiv.oninput = onInput);
 
+    const artifacts = document.querySelectorAll("#artifacts-list .artifact");
+    artifacts.forEach(artifact => artifact.onclick = (event) => {
+        event.target.classList.toggle("selected");
+        if (event.target.id === "elixir_of_Life") {
+            artifacts.forEach(function (artifact) {
+                if (artifact.id !== "elixir_of_Life") {
+                    artifact.classList.remove("selected");
+                }
+            });
+        } else {
+            document.getElementById("elixir_of_Life").classList.remove("selected");
+        }
+        showResult();
+    });
+
     const towns = document.querySelectorAll(".town");
     showCreatures("castle");
     towns.forEach(town => town.onclick = (event) => {
         towns.forEach(town => town.classList.remove("selected"));
-        event.target.classList.add("selected")
+        event.target.classList.add("selected");
         showCreatures(event.target.id);
     });
 });
@@ -84,9 +99,22 @@ function showResult() {
     const selectedCreature = document.querySelectorAll(".creature.selected")[0];
     if (selectedCreature) {
         const pitlordsNumber = Number(document.getElementById("pitlord-input").value);
-        const creatureHealth = Number(selectedCreature.getAttribute("health"));
+        let creatureHealth = Number(selectedCreature.getAttribute("health"));
+        const artifacts = document.querySelectorAll("#artifacts-list .artifact.selected");
+        artifacts.forEach(artifact => {
+            if (artifact.id === "ring_of_Vitality" || artifact.id === "ring_of_Life") {
+                creatureHealth += 1;
+            } else if (artifact.id === "vial_of_Lifeblood") {
+                creatureHealth += 2;
+            } else if ("elixir_of_Life") {
+                creatureHealth = Math.round(creatureHealth * 1.25);
+                creatureHealth += 4;
+            }
+        })
         const creatureCost = Number(selectedCreature.getAttribute("cost"));
         const creatureNumber = Number(document.getElementById("creature-input").value);
+
+
 
         const resultDiv = document.getElementById("result");
         const demonNumber = calc.getDemonsNumber(pitlordsNumber, creatureNumber, creatureHealth);
