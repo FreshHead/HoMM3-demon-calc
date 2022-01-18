@@ -46,10 +46,10 @@ header h1 {
     grid-template-areas:
         "towns pitlord pitlord"
         "towns artifacts artifacts"
-        "towns creatures creatures "
-        "towns sacrifice optimal "
-        "towns demons cost "
-        "towns footer footer ";
+        "towns creatures creatures"
+        "towns sacrifice optimal"
+        "towns demons cost"
+        "towns footer footer";
     grid-template-columns: 60px 180px 180px;
     grid-template-rows: 105px 68px 145px 105px 105px .8fr;
     grid-gap: 10px;
@@ -184,7 +184,6 @@ label {
 
 .number {
     font-size: 3rem;
-    height: 3.5rem;
     width: 6rem;
     text-align: center;
     line-height: 3.5rem;
@@ -354,6 +353,10 @@ a {
     width: 100%;
 }
 
+#how-to i {
+    font: italic 1em sans-serif;
+}
+
 #how-to ol {
     margin-top: 0.4rem;
     width: 100%;
@@ -386,14 +389,20 @@ a {
 
 @media only screen and (max-width: 375px) {
     .container {
-        grid-template-columns: 50px 150px 150px;
+        grid-template-columns: 50px 150px 130px;
     }
 }
 
-@media only screen and ((max-width: 320px) or (max-height: 568px)) {
+@media only screen and (max-height: 645px) {
+    .container {
+        grid-template-rows: 90px 68px 145px 80px 90px 32px;
+    }
+}
+
+@media only screen and (max-width: 355px), (max-height: 595px) {
     .container {
         grid-gap: 1px;
-        grid-template-rows: 70px 68px 145px 105px 105px 32px;
+        grid-template-rows: 70px 68px 145px 80px 105px 32px;
         grid-template-columns: 50px 150px 100px;
     }
 
@@ -417,5 +426,17 @@ a {
 
     .demon-pic {
         display: none;
+    }
+}
+
+@media only screen and (max-height: 565px) {
+    .container {
+        grid-gap: 0px;
+        grid-template-rows: 40px 68px 145px 80px 80px 32px;
+    }
+
+    .number {
+        font-size: 1.5rem;
+        line-height: 1.7rem;
     }
 }
