@@ -27,7 +27,7 @@ const getOptimalNumber = function (...params) {
 
 const getByPitlordHealth = function (pitlordsNumber) {
 
-    // We use getDemonsByPitlordsNumber(), because we doesn't need leftover hp. 
+    // We use getDemonsByPitlordsNumber() and multuply by 35, because we doesn't need leftover hp from pitlords. 
     // Example: 3 pitlords * 50 hp => 150 hp; Math.floor(150 hp / 35 hp) => 4 demons; 4 demons * 35 hp = 140 hp; 140 hp is optimum for making maximum demons from 3 pitlords.
 
     return getDemonsByPitlordsNumber(pitlordsNumber) * 35;
