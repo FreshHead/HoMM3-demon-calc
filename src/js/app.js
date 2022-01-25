@@ -2,16 +2,16 @@ import calc from "./calculator.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".arrow.left")
-        .forEach(oDiv => oDiv.onclick = numberDown);
+        .forEach(oDiv => oDiv.addEventListener("click", numberDown));
 
     document.querySelectorAll(".arrow.right")
-        .forEach(oDiv => oDiv.onclick = numberUp);
+        .forEach(oDiv => oDiv.addEventListener("click", numberUp));
 
     document.querySelectorAll("input.number")
-        .forEach(oDiv => oDiv.oninput = onInput);
+        .forEach(oDiv => oDiv.addEventListener("input", onInput));
 
     const artifacts = document.querySelectorAll("#artifacts-list .artifact");
-    artifacts.forEach(artifact => artifact.onclick = (event) => {
+    artifacts.forEach(artifact => artifact.addEventListener("click", (event) => {
         event.target.classList.toggle("selected");
         if (event.target.id === "elixir_of_Life") {
             artifacts.forEach(function (artifact) {
@@ -23,15 +23,15 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("elixir_of_Life").classList.remove("selected");
         }
         showResult();
-    });
+    }));
 
     const towns = document.querySelectorAll(".town");
     showCreatures("castle");
-    towns.forEach(town => town.onclick = (event) => {
+    towns.forEach(town => town.addEventListener("click", (event) => {
         towns.forEach(town => town.classList.remove("selected"));
         event.target.classList.add("selected");
         showCreatures(event.target.id);
-    });
+    }));
 });
 const towns = {
     "castle": [{ hp: 10, cost: 60 }, { hp: 10, cost: 100 }, { hp: 25, cost: 200 }, { hp: 35, cost: 300 }, { hp: 30, cost: 400 }],
@@ -57,12 +57,13 @@ function showCreatures(town) {
         creatureDiv.setAttribute("health", creature.hp);
         creatureDiv.setAttribute("cost", creature.cost);
         creatureDiv.classList.add("creature");
-        creatureDiv.onclick = (event) => {
-            const creaturesDivs = document.querySelectorAll(".creature");
-            creaturesDivs.forEach(creatureDiv => creatureDiv.classList.remove("selected"));
+        creatureDiv.addEventListener("click", (event) => {
+            for (let creature of creaturesDiv.children) {
+                creature.classList.remove("selected");
+            }
             event.target.classList.add("selected");
             showResult();
-        };
+        });
         creatureDiv.style.backgroundImage = "url(img/sprite_sheets/creatures.webp)";
         creatureDiv.style.backgroundPositionX = offsetX + "px";
         creatureDiv.style.backgroundPositionY = townNumber ? -townNumber * 64 + "px" : 0;
