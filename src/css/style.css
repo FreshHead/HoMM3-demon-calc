@@ -41,7 +41,6 @@ header h1 {
 .container {
     max-width: 450px;
     max-height: 720px;
-    margin: 0 auto;
     display: grid;
     grid-template-areas:
         "towns pitlord pitlord"
