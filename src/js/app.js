@@ -34,17 +34,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }));
 });
 const towns = {
-    "castle": [{ hp: 10, cost: 60 }, { hp: 10, cost: 100 }, { hp: 25, cost: 200 }, { hp: 35, cost: 300 }, { hp: 30, cost: 400 }],
-    "conflux": [{ hp: 3, cost: 25 }],
-    "cove": [{ hp: 4, cost: 35 }, { hp: 15, cost: 110 }, { hp: 30, cost: 275 }, { hp: 35, cost: 515 }],
-    "dungeon": [{ hp: 5, cost: 50 }, { hp: 6, cost: 65 }, { hp: 14, cost: 130 }, { hp: 22, cost: 250 }, { hp: 25, cost: 300 }, { hp: 30, cost: 330 }, { hp: 50, cost: 500 }],
-    "fortress": [{ hp: 6, cost: 50 }, { hp: 14, cost: 110 }, { hp: 15, cost: 140 }, { hp: 20, cost: 220 }, { hp: 35, cost: 325 }],
-    "inferno": [{ hp: 4, cost: 50 }, { hp: 13, cost: 125 }, { hp: 25, cost: 200 }],
+    "castle": [{ hp: 10, cost: 60 }, { hp: 10, cost: 100 }, { hp: 25, cost: 200 }, { hp: 35, cost: 300 }, { hp: 30, cost: 400 }, { hp: 100, cost: 1000 }, { hp: 200, cost: 3000 }],
+    "conflux": [{ hp: 3, cost: 25 }, { hp: 150, cost: 1500 }],
+    "cove": [{ hp: 4, cost: 35 }, { hp: 15, cost: 110 }, { hp: 30, cost: 275 }, { hp: 35, cost: 515 }, { hp: 80, cost: 1000 }, { hp: 180, cost: 2200 }],
+    "dungeon": [{ hp: 5, cost: 50 }, { hp: 6, cost: 65 }, { hp: 14, cost: 130 }, { hp: 22, cost: 250 }, { hp: 25, cost: 300 }, { hp: 30, cost: 330 }, { hp: 50, cost: 500 }, { hp: 80, cost: 850 }, { hp: 180, cost: 2500 }],
+    "fortress": [{ hp: 6, cost: 50 }, { hp: 14, cost: 110 }, { hp: 15, cost: 140 }, { hp: 20, cost: 220 }, { hp: 35, cost: 325 }, { hp: 70, cost: 525 }, { hp: 70, cost: 800 }, { hp: 175, cost: 2200 }],
+    "inferno": [{ hp: 4, cost: 50 }, { hp: 13, cost: 125 }, { hp: 25, cost: 200 }, { hp: 35, cost: 250 }, { hp: 45, cost: 500 }, { hp: 90, cost: 900 }, { hp: 160, cost: 2700 }],
     "neutral": [{ hp: 1, cost: 0 }, { hp: 4, cost: 0 }, { hp: 10, cost: 100 }, { hp: 15, cost: 150 }, { hp: 30, cost: 200 }, { hp: 35, cost: 300 }, { hp: 40, cost: 500 }, { hp: 30, cost: 750 }],
     "neutral-hota": [{ hp: 20, cost: 100 }, { hp: 15, cost: 400 }, { hp: 50, cost: 600 }],
-    "rampart": [{ hp: 8, cost: 70 }, { hp: 10, cost: 90 }, { hp: 20, cost: 120 }, { hp: 15, cost: 200 }, { hp: 30, cost: 250 }, { hp: 55, cost: 350 }],
-    "stronghold": [{ hp: 5, cost: 40 }, { hp: 10, cost: 100 }, { hp: 15, cost: 150 }, { hp: 20, cost: 165 }, { hp: 40, cost: 300 }],
-    "tower": [{ hp: 4, cost: 30 }, { hp: 25, cost: 350 }, { hp: 30, cost: 450 }, { hp: 40, cost: 550 }]
+    "rampart": [{ hp: 8, cost: 70 }, { hp: 10, cost: 90 }, { hp: 20, cost: 120 }, { hp: 15, cost: 200 }, { hp: 30, cost: 250 }, { hp: 55, cost: 350 }, { hp: 90, cost: 850 }, { hp: 180, cost: 2400 }],
+    "stronghold": [{ hp: 5, cost: 40 }, { hp: 10, cost: 100 }, { hp: 15, cost: 150 }, { hp: 20, cost: 165 }, { hp: 40, cost: 300 }, { hp: 60, cost: 600 }, { hp: 70, cost: 750 }, { hp: 160, cost: 1500 }],
+    "tower": [{ hp: 4, cost: 30 }, { hp: 25, cost: 350 }, { hp: 30, cost: 450 }, { hp: 40, cost: 550 }, { hp: 110, cost: 1100 }, { hp: 150, cost: 2000 }]
 };
 function showCreatures(town) {
     const townCreatures = towns[town];
