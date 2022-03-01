@@ -195,6 +195,10 @@ label {
     flex-wrap: wrap;
     justify-content: space-around;
     align-content: flex-start;
+
+    padding: 5px 5px 0 5px;
+
+    overflow: auto;
 }
 
 #creatures-list .creature {
@@ -202,7 +206,7 @@ label {
     border: 1px solid grey;
     width: 58px;
     height: 64px;
-    margin: 0 1px 5px 0;
+    margin: 0 5px 5px 0;
 }
 
 #sacrificed-number {
