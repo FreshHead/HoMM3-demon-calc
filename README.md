@@ -47,6 +47,7 @@ Cyrus Annihilator — за спрайты из героев. Его сайт: ht
 ### Вопрос: Почему не используешь расширение *.mjs?
 ### Ответ:
 Сервер моего текущего хостинга отдаёт *.mjs файлы с Content-Type: "application/octet-stream" что приводит к ошибкам в браузерах:
+
 Firefox:
 ```
 Loading module from “http://localhost/file.mjs” was blocked because of a disallowed MIME type (“application/octet-stream”).
