@@ -1,4 +1,4 @@
-# heroes3_demonology_calc
+# HoMM3-demon-calc
 
 Сайт про механику демонения из игры Heroes of Might and Magic 3.
 
