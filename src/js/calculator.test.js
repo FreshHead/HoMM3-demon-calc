@@ -86,6 +86,12 @@ const testData = [
         expectedDemonsNumber: 9999,
         expectedOptimalNumber: 9999
     },
+    {
+        name: "Passing Strings",
+        data: ["10", "36", "1"],
+        expectedDemonsNumber: 1,
+        expectedOptimalNumber: 35
+    },
 ];
 
 describe.each(testData)("getDemonsNumber()",
