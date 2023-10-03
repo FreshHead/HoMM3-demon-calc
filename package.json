@@ -1,14 +1,16 @@
 {
     "name": "heroes3-demonology",
     "version": "0.1.0",
+    "type": "module",
     "devDependencies": {
         "jest": "29.7.0",
         "prettier": "3.0.3",
         "serve": "13.0.2"
     },
-    "type": "module",
     "scripts": {
         "start": "serve ./src",
-        "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+        "jest": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+        "test": "npm run jest -- --watch",
+        "test:run": "npm run jest -- --coverage"
     }
 }

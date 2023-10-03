@@ -1,5 +1,5 @@
 import { test, describe, expect } from "@jest/globals";
-import calc from "./calculator.js";
+import * as calc from "./calculator.js";
 
 const testData = [
     {
@@ -88,13 +88,13 @@ const testData = [
     },
 ];
 
-describe.each(testData)("getDemonsNumber",
+describe.each(testData)("getDemonsNumber()",
     ({ name, data, expectedDemonsNumber }) => test(name, () =>
         expect(calc.getDemonsNumber(...data)).toBe(expectedDemonsNumber)
     )
 );
 
-describe.each(testData)("getOptimalDemonsNumber",
+describe.each(testData)("getOptimalDemonsNumber()",
     ({ name, data, expectedDemonsNumber, expectedOptimalNumber }) =>
         test(name, () =>
             expect(calc.getOptimalNumber(...data, expectedDemonsNumber)).toBe(expectedOptimalNumber)
