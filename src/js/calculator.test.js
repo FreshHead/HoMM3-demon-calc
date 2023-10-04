@@ -1,5 +1,5 @@
 import { test, describe, expect } from "@jest/globals";
-import * as calc from "./calculator.js";
+import calc from "./calculator.js";
 
 const testData = [
     {

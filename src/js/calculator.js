@@ -38,4 +38,4 @@ const getOptimalHealth = function (overallHealth) {
     return overallHealth - leftovers;
 }
 
-export { getDemonsNumber, getOptimalNumber };
+export default { getDemonsNumber, getOptimalNumber };
